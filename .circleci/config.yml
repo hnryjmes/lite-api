@@ -65,9 +65,6 @@ commands:
       - restore_cache:
           key: dependencies-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
-          name: Install OS libraries
-          command: sudo apt-get install swig;
-      - run:
           name: Install Dependencies
           command: pipenv sync --dev
       - run:
@@ -201,9 +198,6 @@ jobs:
             git submodule update --init
       - restore_cache:
           key: dependencies-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
-      - run:
-          name: Install OS libraries
-          command: sudo apt-get install swig;
       - run:
           name: Install Dependencies
           command: pipenv sync --dev
