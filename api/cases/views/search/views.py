@@ -96,7 +96,7 @@ class CasesSearchView(generics.ListAPIView):
         gov_users = service.get_gov_users_list()
         advice_types = service.get_advice_types_list()
         # Add destinations.
-        service.populate_destinations(cases)
+        # service.populate_destinations(cases)
 
         return self.get_paginated_response(
             {
